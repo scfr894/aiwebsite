@@ -1,0 +1,147 @@
+body {
+    background-color: rgb(20, 20, 20);
+    margin: 0px;
+    font-family: 'Ibarra Real Nova', serif;
+    overflow-x: hidden;
+  }
+  
+    /*/////////////////////////////////MENU STUFF/////////////////////////////////////*/
+#menu {  
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+  
+#menu-items {
+    margin-left: clamp(4rem, 20vw, 48rem);
+    position: relative;
+    z-index: 2;
+}
+  
+#menu[data-active-index="0"] > #menu-background-pattern {
+    background-position: 0% -25%;
+}
+  
+#menu[data-active-index="1"] > #menu-background-pattern {
+    background-position: 0% -50%;
+}
+  
+#menu[data-active-index="2"] > #menu-background-pattern {
+    background-position: 0% -75%;
+}
+  
+#menu[data-active-index="3"] > #menu-background-pattern {
+    background-position: 0% -100%;
+}
+  
+#menu-background-pattern {
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.1) 9%, 
+      transparent 9%
+    );
+    background-position: 0% 0%;
+    background-size: 12vmin 12vmin;
+    height: 100vh;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    transition: opacity 800ms ease, 
+      background-size 800ms ease,
+      background-position 800ms ease;
+    width: 100vw;
+    z-index: 1;
+}
+
+  
+#menu-items:hover ~ #menu-background-pattern {
+    background-size: 11vmin 11vmin;
+    opacity: 0.5;
+}
+  
+#menu-items:hover ~ #menu-background-image {
+    background-size: 100vmax;
+    opacity: 0.1;
+}
+  
+#menu-items:hover > .menu-item {
+    opacity: 0.3;
+}
+  
+#menu-items:hover > .menu-item:hover {
+    opacity: 1; 
+}
+  
+.menu-item {
+    color: white;
+    cursor: pointer;
+    display: block;
+    font-family: 'Ibarra Real Nova', serif;
+    font-size: 80px;
+    padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
+    text-decoration: none;
+    transition: opacity 400ms ease;
+}
+
+    /*///////////////////////////////////////SECTION STUFF/////////////////////////////////////////*/
+
+section {
+    display: grid;
+    place-items: center;
+    align-content: center;
+    min-height: 100vh;
+    color: white;
+    font-size: 50px;
+}
+
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 1s;
+}
+
+@media(prefers-reduced-motion) {
+    .hidden {
+        transition: none;
+    }
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+.logos {
+    display: flex;
+}
+
+.logo:nth-child(2) {
+    transition-delay: 200ms;
+}
+.logo:nth-child(3) {
+    transition-delay: 400ms;
+}
+.logo:nth-child(4) {
+    transition-delay: 600ms;
+}
+
+.logo {
+    padding: 0.5rem;
+    margin: 0 0.5rem;
+}
+
+img {
+    width: 100%;
+}
+
+p {
+    font-size: 20px;
+    align-content: center;
+    width: 50%;
+}
+
+h3 {
+    font-size: 25px;
+}
